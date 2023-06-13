@@ -3,10 +3,8 @@ from display_progress import progress_for_pyrogram
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyromod import listen
+from env import BOT_TOKEN, API_ID, API_HASH
 
-BOT_TOKEN = ""
-API_ID = ""
-API_HASH = ""
 
 Bot = Client(
     "Thumb-Bot",
