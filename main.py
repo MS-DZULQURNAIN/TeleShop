@@ -63,5 +63,6 @@ async def thumb_change(bot, m):
     os.remove(file_dl_path)
 
 
-
+print("THUMBNAIL BOT BERHASIL DIAKTIFKAN 🔥🔥🔥")
+print("by @MSDZULQRNN t.me/MSPR0JECT | t.me/envSample")
 Bot.run()
