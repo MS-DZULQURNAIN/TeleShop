@@ -3,7 +3,7 @@ from display_progress import progress_for_pyrogram
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyromod import listen
-from env import BOT_TOKEN, API_ID, API_HASH
+from lobang import BOT_TOKEN, API_ID, API_HASH, thumb
 
 
 Bot = Client(
@@ -37,8 +37,7 @@ async def start(bot, update):
     )
 
 
-# global variable to store path of the recent sended thumbnail
-thumb = ""
+
 
 @Bot.on_message(filters.private & (filters.video | filters.document))
 async def thumb_change(bot, m):
