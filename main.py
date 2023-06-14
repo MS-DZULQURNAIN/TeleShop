@@ -2,8 +2,9 @@ import os, time
 from display_progress import progress_for_pyrogram
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.errors import UserNotParticipant
 from pyromod import listen
-from lobang import BOT_TOKEN, API_ID, API_HASH, thumb
+from lobang import BOT_TOKEN, API_ID, API_HASH, thumb, FSUB
 
 
 Bot = Client(
@@ -28,6 +29,9 @@ START_BTN = InlineKeyboardMarkup(
 
 @Bot.on_message(filters.command(["start"]))
 async def start(bot, update):
+    if not FSUB:
+        except UserNotParticipant
+        try:
     text = START_TXT.format(update.from_user.mention)
     reply_markup = START_BTN
     await update.reply_text(
