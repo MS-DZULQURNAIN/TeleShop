@@ -36,7 +36,17 @@ async def start(bot, message):
             await bot.get_chat_member(FSUB, message.from_user.id)
         except UserNotParticipant:
             info = await bot.export_chat_invite_link(lobang.FSUB)
-            
+            link = info.invite_link
+            bfsub = InlineKeyboardMarkup([
+                [
+                    InlineKeyboardButton(text="Join", url = link),
+                ]
+              ]
+             )
+            try:
+                await message.reply_text(
+                    f"join dulu ya tod",
+                    reply_markup=bfsub)
     text = START_TXT.format(message.from_user.mention)
     reply_markup = START_BTN
     await message.reply_text(
