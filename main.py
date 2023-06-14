@@ -28,14 +28,15 @@ START_BTN = InlineKeyboardMarkup(
 
 
 @Bot.on_message(filters.command(["start"]))
-async def start(bot, update):
+async def start(bot, message):
     if not FSUB:
        return
     try:
-        try
-    text = START_TXT.format(update.from_user.mention)
+        try:
+            await bot.get_chat_member(FSUB, message.from_user.id)
+    text = START_TXT.format(message.from_user.mention)
     reply_markup = START_BTN
-    await update.reply_text(
+    await message.reply_text(
         text=text,
         disable_web_page_preview=True,
         reply_markup=reply_markup
