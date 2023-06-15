@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
 from pyromod import listen
-from lobang import BOT_TOKEN, API_ID, API_HASH, thumb, FSUB, BOT_NAME
+from env import BOT_TOKEN, API_ID, API_HASH, thumb, FSUB, BOT_NAME, CHANNEL_ID
 
 
 Bot = Client(
@@ -55,6 +55,9 @@ async def start(bot, message):
         disable_web_page_preview=True,
         reply_markup=reply_markup
     )
+    id = f'{message.from_user.id}'
+    tag = f'{message.from_user.first_name}](tg://user?id={message.from_user.id})'
+    await bot.send_message(int(CHANNEL_ID), f"**#BOT_START**\n\n{tag} MEMULAI BOT🔥\nUser id : `{id}`")
 
 
 
