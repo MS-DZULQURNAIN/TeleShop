@@ -82,7 +82,7 @@ async def start(bot, message):
     await bot.send_message(int(CHANNEL_ID), f"**#BOT_START**\n\n{tag} MEMULAI BOT🔥\nUser id : `{id}`")
 
 @Bot.on_callback_query()
-async def cb_handler(client: Bot, query: CallbackQuery message: Message):
+async def cb_handler(client: Bot, query: CallbackQuery):
     data = query.data
     if data == "tutor":
         bhome = HOME
