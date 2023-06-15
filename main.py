@@ -86,7 +86,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     if data == "tutor":
         bhome = HOME
         await query.message.edit_text(
-            text=f"**Tutorial ThumbnailRobot💡\n\n1.Kirimkan video ke ThumbnailRobot\n2.Kirimkan Thumnail/foto yg akan dijadikan Thumnail\n3.Selesai\n\nNote:\nBot hanya bisa memasang thumbnail dengan minimal durasi 20 detik,jika masih gagal silakan ajukan keluhannya ke developer👤",
+            text=f"<b>Tutorial💡\n\n1.Kirimkan video ke {BOT_NAME}\n2.Kirimkan foto yg akan dijadikan Thumbnail\n3.Selesai\n\nNote:\nBot hanya bisa memasang thumbnail dengan minimal durasi 20 detik,jika masih gagal silakan ajukan keluhannya ke developer👤</b>",
             disable_web_page_preview=True,
             reply_markup=bhome
         )
@@ -113,7 +113,7 @@ async def thumb_change(bot, m):
     c_time = time.time()
     file_dl_path = await bot.download_media(message=m, progress=progress_for_pyrogram, progress_args=("Downloading file..", msg, c_time))
     await msg.delete()
-    answer = await bot.ask(m.chat.id,'Now send the thumbnail' + ' or /keep to keep the previous thumb' if thumb else '', filters=filters.photo | filters.text)
+    answer = await bot.ask(m.chat.id,'Kirimkan foto' + 'untuk dijadikan sebagai Thumbnail' if thumb else '', filters=filters.photo | filters.text)
     if answer.photo:
         try:
             os.remove(thumb)
