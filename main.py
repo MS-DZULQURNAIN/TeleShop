@@ -45,8 +45,11 @@ async def fsub(bot, message):
     await message.reply_text(tfsub, reply_markup=bfsub)
     await message.stop_propagation()
 
+# FUNCTION COMMAND
+def filter(cmd: str):
+    return filters.private & filters.incoming & filters.command(cmd)
 
-@Bot.on_message(filters.command(["start"]))
+@Bot.on_message(filter("start"))
 async def start(bot, message):
     text = START_TXT.format(message.from_user.mention, BOT_NAME)
     reply_markup = START_BTN
