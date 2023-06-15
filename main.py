@@ -15,9 +15,9 @@ Bot = Client(
 )
 
 START_MSG = """
-<b>👋Halo {}
+<b>👋Halo {message.from_user.mention}
 
-Saya Adalah {} yang akan membantu Anda untuk memasang thumbnail video dengan mudah melalui telegram
+Saya Adalah {BOT_NAME} yang akan membantu Anda untuk memasang thumbnail video dengan mudah melalui telegram
 
 Klik button tutorial untuk mulai mengetahui cara-cara nya</b>
 """
@@ -62,7 +62,7 @@ async def fsub(bot, message):
                                 ])
          await message.reply_text(text=tfsub, reply_markup=bfsub)
          await message.stop_propagation()
-            return await message.delete()
+         await message.delete()
 
 # FUNCTION COMMAND
 def filter(cmd: str):
@@ -92,7 +92,7 @@ async def cb_handler(client: Bot, query: CallbackQuery message: Message):
             reply_markup=bhome
         )
     elif data == "st":
-        tst = START_MSG.format(message.from_user.mention, BOT_NAME)
+        tst = START_MSG
         bst = START_BTN
         await query.message.edit_text(text=tst, disable_web_page_preview=True, reply_markup=bst)
     elif data == "donasi":
