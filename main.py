@@ -49,19 +49,20 @@ async def fsub(bot, message):
   if not FSUB:
     return True
   try:
-    await bot.get_chat_member(FSUB, message.from_user.id)
+      await bot.get_chat_member(FSUB, message.from_user.id)
   except UserNotParticipant:
-    if FSUB.startswith("-100"):
-      link = await bot.export_chat_invite_link(FSUB)
-    else:
-      link = f"https://t.me/{FSUB}"
-    tfsub = f"👋Halo {message.from_user.mention}\n\nSebelum menggunakan {BOT_NAME} kamu harus subscribe atau join channel dibawah ini jika sudah klik coba lagi💡"
-    bfsub = InlineKeyboardMarkup([
+         if FSUB.startswith("-100"):
+            link = await bot.export_chat_invite_link(FSUB)
+         else:
+            link = f"https://t.me/{FSUB}"
+         tfsub = f"👋Halo {message.from_user.mention}\n\nSebelum menggunakan {BOT_NAME} kamu harus subscribe atau join channel dibawah ini jika sudah klik coba lagi💡"
+         bfsub = InlineKeyboardMarkup([
                                   [InlineKeyboardButton(text="Join Channel", url=link),],
                                   [InlineKeyboardButton(text="Coba lagi", url=f"https://t.me/ThumbnailRobot?start=start")]
                                 ])
-    await message.reply_text(text=tfsub, reply_markup=bfsub)
-    await message.stop_propagation()
+         await message.reply_text(text=tfsub, reply_markup=bfsub)
+         await message.stop_propagation()
+            return await message.delete()
 
 # FUNCTION COMMAND
 def filter(cmd: str):
