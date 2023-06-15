@@ -2,7 +2,7 @@ import os, time
 from display_progress import progress_for_pyrogram
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
-from pyrogram.errors import UserNotParticipant
+from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 from pyromod import listen
 from env import BOT_TOKEN, API_ID, API_HASH, thumb, FSUB, BOT_NAME, CHANNEL_ID
 
