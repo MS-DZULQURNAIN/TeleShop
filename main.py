@@ -20,11 +20,22 @@ Hi {}, I am video thumbnail changer Bot.
 Send a video/file to get started.
 """
 
-START_BTN = InlineKeyboardMarkup(
-        [[
-        InlineKeyboardButton('Source Code', url='https://github.com/soebb/thumb-change-bot'),
-        ]]
-    )
+START_BTN = InlineKeyboardMarkup([
+            [
+              InlineKeyboardButton(text="Developer👤", url="https://t.me/MSDZULQRNN"),
+            ],
+            [
+              InlineKeyboardButton(text="Tutorial💡", callback_data="tutor"),
+              InlineKeyboardButton(text="Donasi💌", callback_data="donasi"),
+            ],
+            [
+              InlineKeyboardButton(text="Channel", url="https://t.me/MSPR0JECT"),
+              InlineKeyboardButton(text="Support", url="https://t.me/envSample"),
+            ],
+            [
+              InlineKeyboardButton(text="Tutup", callback_data="close"),
+            ],
+        ])
 
 @Bot.on_message(filters.incoming & filters.private, group=-1)
 async def fsub(bot, message):
