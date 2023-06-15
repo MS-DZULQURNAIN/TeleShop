@@ -122,10 +122,11 @@ async def thumb_change(bot, m):
         thumb = await bot.download_media(message=answer.photo)
     msg = await m.reply("`Uploading..`", parse_mode='md')
     c_time = time.time()
+    done = "Add Thumbnail by @ThumbnailRobot"
     if m.document:
         await bot.send_document(chat_id=m.chat.id, document=file_dl_path, thumb=thumb, caption=m.caption if m.caption else None, progress=progress_for_pyrogram, progress_args=("Uploading file..", msg, c_time))
     elif m.video:
-        await bot.send_video(chat_id=m.chat.id, video=file_dl_path, thumb=thumb, caption=m.caption if m.caption else None, progress=progress_for_pyrogram, progress_args=("Uploading file..", msg, c_time))
+        await bot.send_video(chat_id=m.chat.id, video=file_dl_path, thumb=thumb, caption=done, progress=progress_for_pyrogram, progress_args=("Uploading file..", msg, c_time))
     await msg.delete()
     os.remove(file_dl_path)
 
