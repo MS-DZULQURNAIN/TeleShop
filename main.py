@@ -20,6 +20,11 @@ Hi {}, I am video thumbnail changer Bot.
 Send a video/file to get started.
 """
 
+HOME = InlineKeyboardMarkup([
+            [
+              InlineKeyboardButton(text="Kembali", callback_data="st"),
+            ]])
+
 START_BTN = InlineKeyboardMarkup([
             [
               InlineKeyboardButton(text="Developer👤", url="https://t.me/MSDZULQRNN"),
