@@ -65,7 +65,8 @@ async def fsub(bot, message):
             link = f"https://t.me/{FSUB}"
          tfsub = f"👋Halo {message.from_user.mention}\n\nSebelum menggunakan {BOT_NAME} kamu harus subscribe atau join channel dibawah ini jika sudah klik coba lagi💡"
          bfsub = InlineKeyboardMarkup([
-                                  [InlineKeyboardButton(text="Join Channel", url=link),],
+                                  [InlineKeyboardButton(text="Join Group", url="https://t.me/envSample"),
+                                   InlineKeyboardButton(text="Join Channel", url=link),],
                                   [InlineKeyboardButton(text="Coba lagi", url=f"https://t.me/ThumbnailRobot?start=start")]
                                 ])
          await message.reply_text(text=tfsub, reply_markup=bfsub)
