@@ -15,7 +15,15 @@ Bot = Client(
 )
 
 START_MSG = f"""
-<b>👋Halo {message.from_user.mention}
+<b>👋Halo {}
+
+Saya Adalah {} yang akan membantu Anda untuk memasang thumbnail video dengan mudah melalui telegram
+
+Klik button tutorial untuk mulai mengetahui cara-cara nya</b>
+"""
+
+START_MSG1 = f"""
+<b>👋Halo 
 
 Saya Adalah {BOT_NAME} yang akan membantu Anda untuk memasang thumbnail video dengan mudah melalui telegram
 
@@ -69,7 +77,7 @@ def filter(cmd: str):
 
 @Bot.on_message(filter("start"))
 async def start(bot, message):
-    text = START_MSG
+    text = START_MSG.format(message.from_user.mention, BOT_NAME)
     reply_markup = START_BTN
     await message.reply_text(
         text=text,
@@ -77,7 +85,7 @@ async def start(bot, message):
         reply_markup=reply_markup
     )
     id = f'{message.from_user.id}'
-    tag = f'{message.from_user.first_name}](tg://user?id={message.from_user.id})'
+    tag = f'[{message.from_user.first_name}](tg://user?id={message.from_user.id})'
     await bot.send_message(int(CHANNEL_ID), f"**#BOT_START**\n\n{tag} MEMULAI BOT🔥\nUser id : `{id}`")
 
 @Bot.on_callback_query()
@@ -91,7 +99,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
             reply_markup=bhome
         )
     elif data == "st":
-        tst = START_MSG
+        tst = START_MSG1
         bst = START_BTN
         await query.message.edit_text(text=tst, disable_web_page_preview=True, reply_markup=bst)
     elif data == "donasi":
