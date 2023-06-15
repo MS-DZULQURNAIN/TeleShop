@@ -1,7 +1,7 @@
 import os, time
 from display_progress import progress_for_pyrogram
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram.errors import UserNotParticipant
 from pyromod import listen
 from env import BOT_TOKEN, API_ID, API_HASH, thumb, FSUB, BOT_NAME, CHANNEL_ID
@@ -59,7 +59,30 @@ async def start(bot, message):
     tag = f'{message.from_user.first_name}](tg://user?id={message.from_user.id})'
     await bot.send_message(int(CHANNEL_ID), f"**#BOT_START**\n\n{tag} MEMULAI BOT🔥\nUser id : `{id}`")
 
-
+@Bot.on_callback_query()
+async def cb_handler(client: Bot, query: CallbackQuery):
+    data = query.data
+    if data == "tutor":
+        bhome = HOME
+        await query.message.edit_text(
+            text=f"**Tutorial ThumbnailRobot💡\n\n1.Kirimkan video ke ThumbnailRobot\n2.Kirimkan Thumnail/foto yg akan dijadikan Thumnail\n3.Selesai\n\nNote:\nBot hanya bisa memasang thumbnail dengan minimal durasi 20 detik,jika masih gagal silakan ajukan keluhannya ke developer👤",
+            disable_web_page_preview=True,
+            reply_markup=bhome
+        )
+    elif data == "st":
+        tst = START_MSG.format(message.from_user.mention, BOT_NAME)
+        bst = START_BTN
+        await query.message.edit_text(text=tst, disable_web_page_preview=True, reply_markup=bst)
+    elif data == "donasi":
+        tdn = "Terimakasih yang sudah berdonasi agar bot tetap aktif [💌](https://telegra.ph/file/bdf23d4e78c8337249c26.png)"
+        bdn = HOME
+        await query.message.edit_text(text=tdn, disable_web_page_preview=True, reply_markup=bdn)
+    elif data == "close":
+        await query.message.delete()
+        try:
+            await query.message.reply_to_message.delete()
+        except BaseException:
+            pass
 
 
 @Bot.on_message(filters.private & (filters.video | filters.document))
