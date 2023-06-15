@@ -15,9 +15,10 @@ Bot = Client(
 )
 
 START_TXT = """
-Hi {}, I am video thumbnail changer Bot.
+**👋Halo {}
+Saya Adalah {} yang akan membantu Anda untuk memasang thumbnail video dengan mudah melalui telegram
 
-Send a video/file to get started.
+Klik button tutorial untuk mulai mengetahui cara-cara nya
 """
 
 HOME = InlineKeyboardMarkup([
