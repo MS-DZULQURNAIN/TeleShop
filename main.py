@@ -60,7 +60,7 @@ async def fsub(bot, message):
                                   [InlineKeyboardButton(text="Join Channel", url=link),],
                                   [InlineKeyboardButton(text="Coba lagi", url=f"https://t.me/ThumbnailRobot?start=start")]
                                 ])
-    await message.reply_text(tfsub, reply_markup=bfsub)
+    await message.reply_text(text=tfsub, reply_markup=bfsub)
     await message.stop_propagation()
 
 # FUNCTION COMMAND
@@ -81,12 +81,12 @@ async def start(bot, message):
     await bot.send_message(int(CHANNEL_ID), f"**#BOT_START**\n\n{tag} MEMULAI BOT🔥\nUser id : `{id}`")
 
 @Bot.on_callback_query()
-async def cb_handler(client: Bot, query: CallbackQuery):
+async def cb_handler(client: Bot, query: CallbackQuery message: Message):
     data = query.data
     if data == "tutor":
         bhome = HOME
         await query.message.edit_text(
-            text=f"<b>Tutorial💡\n\n1.Kirimkan video ke {BOT_NAME}\n2.Kirimkan foto yg akan dijadikan Thumbnail\n3.Selesai\n\nNote:\nBot hanya bisa memasang thumbnail dengan minimal durasi 20 detik,jika masih gagal silakan ajukan keluhannya ke developer👤</b>",
+            text=f"<b>Tutorial💡</b>\n\n1.Kirimkan video ke {BOT_NAME}\n2.Kirimkan foto yg akan dijadikan Thumbnail\n3.Selesai\n\n<b>Note:\nBot hanya bisa memasang thumbnail dengan minimal durasi 20 detik,jika masih gagal silakan ajukan keluhannya ke developer👤</b>",
             disable_web_page_preview=True,
             reply_markup=bhome
         )
