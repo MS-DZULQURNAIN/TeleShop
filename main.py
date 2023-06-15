@@ -15,11 +15,11 @@ Bot = Client(
 )
 
 START_MSG = """
-**👋Halo {}
+<b>👋Halo {}
 
 Saya Adalah {} yang akan membantu Anda untuk memasang thumbnail video dengan mudah melalui telegram
 
-Klik button tutorial untuk mulai mengetahui cara-cara nya
+Klik button tutorial untuk mulai mengetahui cara-cara nya</b>
 """
 
 HOME = InlineKeyboardMarkup([
@@ -97,7 +97,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
     elif data == "donasi":
         tdn = "Terimakasih yang sudah berdonasi agar bot tetap aktif [💌](https://telegra.ph/file/bdf23d4e78c8337249c26.png)"
         bdn = HOME
-        await query.message.edit_text(text=tdn, disable_web_page_preview=True, reply_markup=bdn)
+        await query.message.edit_text(text=tdn, disable_web_page_preview=False, reply_markup=bdn)
     elif data == "close":
         await query.message.delete()
         try:
