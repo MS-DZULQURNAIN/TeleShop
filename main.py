@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from pyrogram.errors import UserNotParticipant
 from pyromod import listen
-from lobang import BOT_TOKEN, API_ID, API_HASH, thumb, FSUB
+from lobang import BOT_TOKEN, API_ID, API_HASH, thumb, FSUB, BOT_NAME
 
 
 Bot = Client(
