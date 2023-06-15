@@ -14,8 +14,9 @@ Bot = Client(
     api_hash = API_HASH
 )
 
-START_TXT = """
+START_MSG = """
 **👋Halo {}
+
 Saya Adalah {} yang akan membantu Anda untuk memasang thumbnail video dengan mudah melalui telegram
 
 Klik button tutorial untuk mulai mengetahui cara-cara nya
@@ -57,7 +58,7 @@ async def fsub(bot, message):
     tfsub = f"👋Halo {message.from_user.mention}\n\nSebelum menggunakan {BOT_NAME} kamu harus subscribe atau join channel dibawah ini jika sudah klik coba lagi💡"
     bfsub = InlineKeyboardMarkup([
                                   [InlineKeyboardButton(text="Join Channel", url=link),],
-                                  [InlineKeyboardButton(text="Coba lagi", url=f"https://t.me/{bot.username}?start={message.command[1]}")]
+                                  [InlineKeyboardButton(text="Coba lagi", url=f"https://t.me/ThumbnailRobot?start=start")]
                                 ])
     await message.reply_text(tfsub, reply_markup=bfsub)
     await message.stop_propagation()
@@ -68,7 +69,7 @@ def filter(cmd: str):
 
 @Bot.on_message(filter("start"))
 async def start(bot, message):
-    text = START_TXT.format(message.from_user.mention, BOT_NAME)
+    text = START_MSG.format(message.from_user.mention, BOT_NAME)
     reply_markup = START_BTN
     await message.reply_text(
         text=text,
