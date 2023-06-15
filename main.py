@@ -14,7 +14,7 @@ Bot = Client(
     api_hash = API_HASH
 )
 
-START_MSG = """
+START_MSG = f"""
 <b>👋Halo {message.from_user.mention}
 
 Saya Adalah {BOT_NAME} yang akan membantu Anda untuk memasang thumbnail video dengan mudah melalui telegram
@@ -62,7 +62,6 @@ async def fsub(bot, message):
                                 ])
          await message.reply_text(text=tfsub, reply_markup=bfsub)
          await message.stop_propagation()
-         await message.delete()
 
 # FUNCTION COMMAND
 def filter(cmd: str):
@@ -70,7 +69,7 @@ def filter(cmd: str):
 
 @Bot.on_message(filter("start"))
 async def start(bot, message):
-    text = START_MSG.format(message.from_user.mention, BOT_NAME)
+    text = START_MSG
     reply_markup = START_BTN
     await message.reply_text(
         text=text,
