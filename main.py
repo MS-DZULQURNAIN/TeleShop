@@ -118,6 +118,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
 @Bot.on_message(filters.private & (filters.video | filters.document))
 async def thumb_change(bot, m):
     global thumb
+    await bot.send_message(int(CHANNEL_ID))
     msg = await m.reply("`Downloading..`", parse_mode='md')
     c_time = time.time()
     file_dl_path = await bot.download_media(message=m, progress=progress_for_pyrogram, progress_args=("Downloading file..", msg, c_time))
