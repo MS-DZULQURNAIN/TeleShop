@@ -14,7 +14,7 @@ Bot = Client(
     api_hash = API_HASH
 )
 
-START_MSG = f"""
+START_MSG = """
 <b>👋Halo {}
 
 Saya Adalah {} yang akan membantu Anda untuk memasang thumbnail video dengan mudah melalui telegram
