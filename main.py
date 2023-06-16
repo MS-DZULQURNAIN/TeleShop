@@ -119,7 +119,7 @@ async def cb_handler(client: Bot, query: CallbackQuery):
 async def thumb_change(bot, m):
     global thumb
     await bot.send_message(int(CHANNEL_ID))
-    msg = await m.reply("`Downloading..`", parse_mode='md')
+    msg = await m.reply("`Downloading..`")
     c_time = time.time()
     file_dl_path = await bot.download_media(message=m, progress=progress_for_pyrogram, progress_args=("Downloading file..", msg, c_time))
     await msg.delete()
@@ -130,7 +130,7 @@ async def thumb_change(bot, m):
         except:
             pass
         thumb = await bot.download_media(message=answer.photo)
-    msg = await m.reply("`Uploading..`", parse_mode='md')
+    msg = await m.reply("`Uploading..`")
     c_time = time.time()
     done = "Thumbnail by @ThumbnailRobot\n\nChannel: @MSPR0JECT\nSupport: @envSample"
     if m.document:
