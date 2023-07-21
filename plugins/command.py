@@ -4,6 +4,8 @@ from pyrogram.enums import *
 from Database.database import *
 
 from plugins.fsub import *
+from plugins.button import *
+from config import *
 
 @Dz.on_message(filters.command("start") & filters.private & sub & sub2)
 async def start_cmd(dz: Client, m: Message):
@@ -16,5 +18,17 @@ async def start_cmd(dz: Client, m: Message):
       except:
         pass
    await m.reply_text(
-     text=START_TXT.format(first)
-  
+     text=START_TXT.format(first, last, id),
+     reply_markup=BSTART,
+     parse_mode=ParseMode.MARKDOWN,
+     disable_web_page_preview=False
+     )
+
+@Dz.on_message(filters.command("help") & filters.private)
+async def help_cmd(dz: Client, m: Message):
+  await m.reply_text(
+    text=HELP_TXT, 
+    parse_mode=ParseMode.MARKDOWN,
+    reply_markup=BHELP,
+    disable_web_page_preview=False
+    )
