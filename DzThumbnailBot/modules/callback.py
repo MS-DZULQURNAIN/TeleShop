@@ -16,4 +16,10 @@ async def callback(Dz: Client, query: CallbackQuery):
       parse_mode=ParseMode.MARKDOWN,
       disable_web_page_preview=False
       ) 
-  elif data == "":
+  elif data == "tutor":
+      await query.message.edit_text(
+            text=TUTOR_TXT,
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=BTUTOR
+            )
