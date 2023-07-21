@@ -17,7 +17,10 @@ async def present_user(user_id : int):
 
 async def add_user(user_id: int):
     user_data.insert_one({
+      'first': first,
+      'last': last,
       '_id': user_id,
+      'username': username,
       'prem': False
     })
     return
