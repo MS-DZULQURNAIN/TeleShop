@@ -1,5 +1,5 @@
 import time
-from pyrogram import*
+from pyrogram import *
 from pyrogram.types import *
 
 @Dz.on_message(filters.private & (filters.video | filters.document))
