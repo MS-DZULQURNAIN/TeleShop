@@ -21,7 +21,8 @@ async def add_user(user_id: int):
       'last': last,
       '_id': user_id,
       'username': username,
-      'prem': False
+      'prem': False,
+      'ban': False
     })
     return
 
