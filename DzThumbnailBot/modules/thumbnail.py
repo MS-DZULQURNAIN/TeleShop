@@ -1,5 +1,6 @@
 import time
 from pyrogram import*
+from pyrogram.types import *
 
 @Dz.on_message(filters.private & (filters.video | filters.document))
 async def thumb_change(bot, m):
@@ -17,7 +18,7 @@ async def thumb_change(bot, m):
         thumb = await bot.download_media(message=answer.photo)
     msg = await m.reply("`Uploading..`")
     c_time = time.time()
-    done = "Thumbnail by @ThumbnailRobot\n\nChannel: @MSPR0JECT\nSupport: @envSample"
+    done = "Thumbnail by @ThumbnailRobot\n\nChannel: @DezetStore\nSupport: @DezetSupport"
     if m.document:
         await bot.send_document(chat_id=m.chat.id, document=file_dl_path, thumb=thumb, caption=done, progress=progress_for_pyrogram, progress_args=("Uploading file..", msg, c_time))
     elif m.video:
