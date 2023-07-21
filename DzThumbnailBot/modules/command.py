@@ -1,7 +1,7 @@
 from pyrogram import *
 from pyrogram.types import *
 from pyrogram.enums import *
-from DzThumbnailBot.core.Database import *
+from DzThumbnailBot.core.Database.database import *
 from DzThumbnailBot.core.button import *
 
 @Dz.on_message(filters.command("start") & filters.private & sub & sub2)
