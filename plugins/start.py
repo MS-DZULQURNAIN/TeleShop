@@ -7,6 +7,8 @@ from plugins.fsub import *
 
 @Dz.on_message(filters.command("start") & filters.private & sub & sub2)
 async def start_cmd(dz: Client, m: Message):
+  first = m.from_user.first_name
+  last = m.from_user.last_name
   id = m.from_user.id
   if not await cek_user(id):
     try:
@@ -14,5 +16,5 @@ async def start_cmd(dz: Client, m: Message):
       except:
         pass
    await m.reply_text(
-     text=START_TXT.format(tag=
+     text=START_TXT.format(first)
   
