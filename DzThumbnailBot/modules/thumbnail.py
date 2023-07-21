@@ -1,8 +1,9 @@
 import time
 from pyrogram import *
 from pyrogram.types import *
-from pyromod import listen
 from DzThumbnailBot.modules.progress import progress_for_pyrogram
+from DzThumbnailBot import Dz
+from DzThumbnailBot.config import *
 
 @Dz.on_message(filters.private & (filters.video | filters.document))
 async def thumb_change(bot, m):
