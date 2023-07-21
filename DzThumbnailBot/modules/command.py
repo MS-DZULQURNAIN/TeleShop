@@ -3,11 +3,11 @@ from pyrogram.types import *
 from pyrogram.enums import *
 from DzThumbnailBot.core.Database.database import *
 from DzThumbnailBot.core.button import *
+from DzThumbnailBot import Dz
+from DzThumbnailBot.config import *
 
 @Dz.on_message(filters.command("start") & filters.private & sub & sub2)
 async def start_cmd(dz: Client, m: Message):
-  first = m.from_user.first_name
-  last = m.from_user.last_name
   id = m.from_user.id
   if not await cek_user(id):
     try:
@@ -15,7 +15,9 @@ async def start_cmd(dz: Client, m: Message):
       except:
         pass
    await m.reply_text(
-     text=START_TXT.format(first, last, id),
+     text=START_TXT.format(
+       m.from_user.first_name,
+       BOT_NAME),
      reply_markup=BSTART,
      parse_mode=ParseMode.MARKDOWN,
      disable_web_page_preview=False
