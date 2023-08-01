@@ -1,9 +1,9 @@
 import pymongo, os
-from DzThumbnailBot.config import DATABASE_URI
+from TeleShop.config import DATABASE_URI
 
 
 dbclient = pymongo.MongoClient(DATABASE_URI)
-database = dbclient["DzThumbnailBot"]
+database = dbclient["TeleShop"]
 
 
 user_data = database['users']
