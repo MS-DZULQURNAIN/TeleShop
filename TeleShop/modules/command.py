@@ -1,10 +1,10 @@
 from pyrogram import *
 from pyrogram.types import *
 from pyrogram.enums import *
-from DzThumbnailBot.core.Database.database import *
-from DzThumbnailBot.core.button import *
-from DzThumbnailBot import Dz
-from DzThumbnailBot.config import *
+from TeleShop.Database.database import *
+from TeleShop.core.button import *
+from TeleShop import Dz
+from TeleShop.config import *
 
 @Dz.on_message(filters.command("start") & filters.private & sub & sub2)
 async def start_cmd(dz: Client, m: Message):
