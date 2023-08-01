@@ -3,6 +3,9 @@ from pyrogram.types import *
 
 BSTART = InlineKeyboardMarkup([
             [
+              InlineKeyboardButton(text="Akun Saya", callback_data="my_account"),
+            ],
+            [
               InlineKeyboardButton(text="Developer👤", url="https://t.me/MSDQQQ"),
             ],
             [
