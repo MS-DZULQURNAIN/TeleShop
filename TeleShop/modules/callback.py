@@ -1,8 +1,8 @@
 from pyrogram import *
 from pyrogram.types import *
-from DzThumbnailBot import Dz
-from DzThumbnailBot.core.data import *
-from DzThumbnailBot.core.button import *
+from TeleShop import Dz
+from TeleShop.core.data import *
+from TeleShop.core.button import *
 
 @Dz.on_callback_query()
 async def callback(Dz: Client, query: CallbackQuery):
@@ -23,3 +23,10 @@ async def callback(Dz: Client, query: CallbackQuery):
             disable_web_page_preview=True,
             reply_markup=BTUTOR
             )
+  elif data == "my_account":
+    await query.message.edit_text(
+      text=MY_ACCOUNT.format(nama, id, akun, saldo, transaksi), 
+      parse_mode=ParseMode.MARKDOWN, 
+      disable_web_page_preview=False, 
+      reply_markup=BHOME, 
+      ) 
