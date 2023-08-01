@@ -1,7 +1,7 @@
 import logging
 from logging.handlers import RotatingFileHandler
 
-LOG_FILE_NAME = "DzThumbnailBot.txt"
+LOG_FILE_NAME = "TeleShop.txt"
 
 logging.basicConfig(
     level=logging.INFO,
@@ -23,7 +23,7 @@ def LOGGER(name: str) -> logging.Logger:
 
 #---------- ---------- ---------- ----------
 from pyrogram import Client
-from DzThumbnailBot.config import API_ID, API_HASH, TOKEN
+from TeleShop.config import API_ID, API_HASH, TOKEN
 
 class Dz(Client):
     def __init__(self):
@@ -33,7 +33,7 @@ class Dz(Client):
             api_id=APP_ID,
             bot_token=TOKEN, 
             plugins={
-                "root": "DzThumbnailBot/modules"
+                "root": "TeleShop/modules"
             }
         )
         self.LOGGER = LOGGER
