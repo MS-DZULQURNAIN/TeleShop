@@ -1,2 +1,2 @@
-from DzThumbnailBot import Dz
+from TeleShop import Dz
 Dz().run()
