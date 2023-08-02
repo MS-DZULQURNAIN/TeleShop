@@ -12,12 +12,12 @@ async def cek_user(user_id : int):
     found = user_data.find_one({'_id': user_id})
     return bool(found)
 
-async def add_user(user_id: int):
+async def add_user(self, user_id: int):
     user_data.insert_one({
-      'first': first,
-      'last': last,
+      'first': self.first,
+      'last': self.last,
       '_id': user_id,
-      'username': username,
+      'username': self.username,
       'prem': False,
       'ban': False
     })
