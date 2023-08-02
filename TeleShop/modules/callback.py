@@ -28,7 +28,7 @@ async def callback(Dz: Client, query: CallbackQuery):
     namad = query.from_user.first_name
     namab = query.from_user.last_name
     idku = query.from_user.id
-    premium = {'Ya' if not prem 'Tidak'}
+    premium = {'Ya' if not prem else 'Tidak'}
     await query.message.edit_text(
       text=MY_ACCOUNT.format(namad, namab, idku, premium), 
       parse_mode=ParseMode.MARKDOWN, 
