@@ -9,7 +9,7 @@ from TeleShop.config import *
 @Dz.on_message(filters.command("start") & filters.private & sub & sub2)
 async def start_cmd(dz: Client, m: Message):
   id = m.from_user.id
-  await add_user(id)
+  add_user(id)
   await m.reply_text(
      text=START_TXT.format(
        m.from_user.first_name,
