@@ -22,9 +22,7 @@ Bot hanya bisa memasang thumbnail dengan minimal durasi 20 detik,jika masih gaga
 MY_ACCOUNT = """
 Informasi Akun:
 
-Nama      : {}
+Nama      : {} {}
 id        : {}
-Saldo     : {}
 Premium   : {}
-Transaksi : {}
 """
