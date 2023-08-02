@@ -1,7 +1,7 @@
 from pyrogram import *
 from pyrogram.types import *
 from pyrogram.enums import *
-from TeleShop.Database.database import *
+from TeleShop.Database.database import add_user
 from TeleShop.core.button import *
 from TeleShop import Dz
 from TeleShop.config import *
@@ -9,12 +9,8 @@ from TeleShop.config import *
 @Dz.on_message(filters.command("start") & filters.private & sub & sub2)
 async def start_cmd(dz: Client, m: Message):
   id = m.from_user.id
-  if not await cek_user(id):
-    try:
-        await add_user(id)
-      except:
-        pass
-   await m.reply_text(
+  await add_user(id)
+  await m.reply_text(
      text=START_TXT.format(
        m.from_user.first_name,
        BOT_NAME),
