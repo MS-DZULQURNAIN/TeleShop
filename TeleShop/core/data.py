@@ -1,3 +1,5 @@
+
+
 START_TXT = """
 **👋Halo {first}
 
@@ -15,4 +17,14 @@ TUTOR_TXT = """
 
 Note:
 Bot hanya bisa memasang thumbnail dengan minimal durasi 20 detik,jika masih gagal silakan ajukan keluhannya ke developer👤
+"""
+
+MY_ACCOUNT = """
+Informasi Akun:
+
+Nama      : {}
+id        : {}
+Saldo     : {}
+Premium   : {}
+Transaksi : {}
 """
